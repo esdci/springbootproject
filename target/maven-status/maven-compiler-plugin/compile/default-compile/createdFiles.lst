@@ -1,0 +1,11 @@
+com\inspur\springbootproject\controller\SpringBootProjectController.class
+com\inspur\springbootproject\dao\mapper\PowerMapper.class
+com\inspur\springbootproject\entity\po\Power.class
+com\inspur\springbootproject\enums\HttpStatusEnum.class
+com\inspur\springbootproject\vo\ResponseVo.class
+com\inspur\springbootproject\entity\po\User.class
+com\inspur\springbootproject\service\Impl\SpringBootProjectServiceImpl.class
+com\inspur\springbootproject\dao\mapper\UserMapper.class
+com\inspur\springbootproject\vo\Meta.class
+com\inspur\springbootproject\service\SpringBootProjectService.class
+com\inspur\springbootproject\SpringbootprojectApplication.class
