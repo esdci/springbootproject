@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspur.springbootproject.dao.mapper.PowerMapper">
+  <resultMap id="BaseResultMap" type="com.inspur.springbootproject.entity.po.Power">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="date" jdbcType="INTEGER" property="date" />
+    <result column="column_3" jdbcType="VARCHAR" property="column3" />
+    <result column="value" jdbcType="DOUBLE" property="value" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.inspur.springbootproject.entity.po.Power">
+    insert into leon_t_power (id, date, column_3, 
+      value)
+    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=INTEGER}, #{column3,jdbcType=VARCHAR}, 
+      #{value,jdbcType=DOUBLE})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.inspur.springbootproject.entity.po.Power">
+    insert into leon_t_power
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="column3 != null">
+        column_3,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=INTEGER},
+      </if>
+      <if test="column3 != null">
+        #{column3,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from leon_t_power
+    where id = #{id, jdbcType=INTEGER}
+  </select>
+
+  <select id="select" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from leon_t_power
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from leon_t_power
+    where id = #{id, jdbcType=INTEGER}
+  </delete>
+
+  <update id="updateByPrimaryKey" parameterType="com.inspur.springbootproject.entity.po.Power">
+    update leon_t_power
+    set id = #{id, jdbcType=INTEGER},
+        date = #{date, jdbcType=INTEGER},
+        column3 = #{column3, jdbcType=VARCHAR},
+        value = #{value, jdbcType=DOUBLE}
+    where id = #{id, jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.inspur.springbootproject.entity.po.Power">
+    update leon_t_power
+    <set>
+      <if test="id != null">
+        id = #{id, jdbcType=INTEGER},
+      </if>
+      <if test="date != null">
+        date = #{date, jdbcType=INTEGER},
+      </if>
+      <if test="column3 != null">
+        column3 = #{column3, jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        value = #{value, jdbcType=DOUBLE}
+      </if>
+    </set>
+    where id = #{id, jdbcType=INTEGER}
+  </update>
+
+</mapper>
